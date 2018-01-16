@@ -1,0 +1,36 @@
+﻿@using MVCForum.Domain.DomainModel
+@model MVCForum.Website.Areas.Admin.ViewModels.EditVPSPricingViewModel
+@{
+    ViewBag.Title = "Danh sách báo giá VPS";
+}
+
+
+<div class="panel">
+    <div class="panel-heading">
+        <h5>Danh sách báo giá VPS</h5>
+    </div>
+    <div class="panel-content">
+        <div id="container">
+            <div class="clearfix">
+                @Html.LabelFor(model => model.CPU)
+                <div class="input">
+                    @Html.TextBoxFor(model => model.CPU, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CPU)
+
+                </div>
+            </div>
+            <div class="clearfix ">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            @Html.LabelFor(model => model.RAM)
+                        </div>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.RAM, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.RAM)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

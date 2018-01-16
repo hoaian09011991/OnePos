@@ -1,0 +1,43 @@
+﻿@using MVCForum.Domain.DomainModel
+@model MVCForum.Website.Areas.Admin.ViewModels.ListVPSPricingViewModel
+@{
+    ViewBag.Title = "Danh sách báo giá VPS";
+}
+
+
+<div class="panel">
+    <div class="panel-heading">
+        <h5>Danh sách báo giá VPS</h5>
+    </div>
+    <div class="panel-content">
+        <div id="container">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>CPU</th>
+                        <th>RAM</th>
+                        <th>Disk Space</th>
+                        <th>BandWidth</th>
+                        <th>Setup</th>
+                        <th>IP</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var cat in Model.VPSPricings)
+                    {
+                        <tr>
+                            <td><a href="@Url.Action("EditVPSPricing", new { id = cat.Id })">@Html.Raw(cat.CPU)</a></td>
+                            <td>@Html.Raw(cat.RAM)</td>
+                            <td>@Html.Raw(cat.DiskSpace)</td>
+                            <td>@Html.Raw(cat.BandWidth)</td>
+                            <td>@Html.Raw(cat.Setup)</td>
+                            <td>@Html.Raw(cat.IP)</td>
+                            <td>@Html.Raw(cat.Price)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+         </div>
+    </div>
+</div>

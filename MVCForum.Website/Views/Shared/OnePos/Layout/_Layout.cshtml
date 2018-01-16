@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+    <meta name="description" content="@ViewBag.MetaDesc" />
+    <meta name="author" content="@ViewBag.MetaAuthor">
+    <meta property="og:url" content="@HttpContext.Current.Request.Url.AbsoluteUri" />
+    <meta property="og:description" content="@ViewBag.MetaDesc" />
+    <meta property="og:title" content="@ViewBag.Title" />
+    <meta property="og:site_name" content="@Html.Settings().ForumName" />
+    <meta property="og:type" content="website" />
+    @RenderSection("SocialMeta", false)
+    @ViewBag.Canonical
+    @RenderSection("Header", false)
+    @if (!string.IsNullOrEmpty(Html.Settings().CustomHeaderCode))
+    {
+        @Html.Raw(Html.Settings().CustomHeaderCode)
+    }
+    
+    @Html.Partial("~/Views/Shared/OnePos/Layout/_StyleSheets.cshtml")
+</head>
+<body>
+    @Html.Partial("~/Views/Shared/OnePos/Layout/_Menu.cshtml")
+
+    @RenderBody()
+
+    @Html.Partial("~/Views/Shared/OnePos/Layout/_CopyRight.cshtml")
+
+    @Html.Partial("~/Views/Shared/OnePos/Layout/_JavaScript.cshtml")
+</body>
+</html>
